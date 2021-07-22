@@ -1,0 +1,68 @@
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.S1 {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.S1 img{
+  width: 600px;
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centrado {
+    display: flex;
+    justify-content: center;
+}
+
+.D1{
+    width: 350px;
+    height: 480px;
+}
+
+.texto{
+    width: 236px;
+    height: 36px;
+    position: relative;
+    background-color: rgb(233, 233, 233);
+    border: 0px;
+    margin-bottom: 3px;
+  }
+
+  .etiqueta{
+    position: relative;
+    text-align: left;
+    margin-left: 55px;
+    margin-bottom: 5px;
+    margin-top: 30px;
+  }
+
+  .boton{
+    border-radius: 20px;
+    width: 236px;
+    height: 30px;
+    border: 0px;
+    background-color: rgb(19, 134, 15);
+    margin-top: 30px;
+    color: whitesmoke;
+  }
+
+  .D2{
+    max-width: 350px;
+    border: 2px solid;
+    border-color: rgba(144, 144, 144, 0.25);
+    height: 80px;
+  }
+
+  .D3{
+      margin-top: 30px;
+  }
+.principal{
+    margin-bottom: 80px;
+}
