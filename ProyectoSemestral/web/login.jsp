@@ -33,7 +33,7 @@
                 <div class="D2">
                     <div>
                         <p>¿No tienes cuenta?
-                            <a href="Regístrate.html">Regístrate</a>
+                            <a href="registrate.jsp">Regístrate</a>
                         </p> 
                     </div>
                 </div>

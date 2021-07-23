@@ -3,6 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/css/Regístrate.css</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/header.jsp</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/css/login.css</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/procesos/inicioSesion.jsp</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/login.jsp</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/home.jsp</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/src/java/procesos/ProcesosUsuarios.java</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/regístrate.jsp</file>
+=======
             <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/css/home.css</file>
             <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/src/java/entidades/Meme.java</file>
             <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/header.jsp</file>
@@ -10,6 +20,7 @@
             <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/css/style.css</file>
             <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/home.jsp</file>
             <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/src/java/procesos/Conexion.java</file>
+>>>>>>> fad2a530433f4c48c42c2c80eb71b98fe412fd5c
         </group>
     </open-files>
 </project-private>
