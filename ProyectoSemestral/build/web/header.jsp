@@ -29,7 +29,7 @@
                 <a href="home.jsp"><img src="imagenes/logo/Logo.png" ></a>
             </li>
             <li class="navli">
-                <a href="inicioSesion.jsp"><i class="fas fa-sign-out-alt"></i>  Salir</a>
+                <a href="login.jsp"><i class="fas fa-sign-out-alt"></i>  Salir</a>
             </li>
             <li class="navli">
                 <a href="contacto.jsp" style="font-weight: bolder;"><i class="fas fa-file"></i>  Contáctanos</a>
