@@ -5,7 +5,10 @@
  */
 package procesos;
 import entidades.Personas;
+
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -16,25 +19,30 @@ public class ProcesosPersonas {
     Connection _cn; /*Se le coloca el gion bajo para saber que es una variable global*/
     
     public ProcesosPersonas(){
-        _cn = new conexion().OpenDb();
+        _cn = new Conexion().OpenDb();
     }
     
-    public int RegistrarPersona(Personas persona){
-        int resultado = 0;
+    public void RegistrarPersona(Personas persona){
+    
         try{
             /*Prepara la DB y las tablas para una consulta*/
             Statement smtm = _cn.createStatement();
-            String query = "INSERT INTO persona(nombre_persona, correo_persona)";
-            /*El valor que tiene query se le concatena lo que esta en comillas*/
-            query += "VALUES('"+persona.getNombre_persona()+"','"+persona.getCorreo_persona()+"')";
-        
-            resultado = smtm.executeUpdate(query); /*Se usa el excuteUdate porque la acción a ejecutar es de insersión*/
-            smtm.close(); /*Todo lo que se abre en DB se cierra*/
+            String nombre = persona.getNombre_persona();
+            String correo = persona.getCorreo_persona();
+            String username = persona.getNombre_usuario();
+            String contra = persona.getContrasena();
+            String fotoP = persona.getFoto_usuario();
             
-            return resultado;
+            String query = "Call Registro ('"+nombre+"','"+correo+"','"+username+"','"+contra+"','"+fotoP+"');";
+           
+            smtm.executeQuery(query); /*Se usa el excuteUdate porque la acción a ejecutar es de insersión*/
+            smtm.close(); /*Todo lo que se abre en DB se cierra*/
+       
         }
-        catch(Exception e){}
+        catch(SQLException e){
+            int x=2;
+        }
         
-        return resultado;
+       
     }    
 }
