@@ -9,7 +9,7 @@ package entidades;
  *
  * @author raulr
  */
-public class meme {
+public class Meme {
 
     public String getNombre_usuario() {
         return nombre_usuario;
@@ -54,5 +54,15 @@ public class meme {
     private String titulo_meme;
     private String imagen_meme;
     private String foto_usuario;
-    private String fecha;	
+    private String fecha;
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+    private int likes;
+
 }
