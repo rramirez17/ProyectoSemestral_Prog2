@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author raulr
  */
-public class conexion {
+public class Conexion {
     public Connection OpenDb(){
         try{
             Class.forName("org.mariadb.jdbc.Driver");
