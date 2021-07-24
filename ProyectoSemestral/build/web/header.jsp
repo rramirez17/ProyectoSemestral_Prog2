@@ -21,6 +21,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;800;900&display=swap">
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+        
         <title>Fun4U</title>
     </head>
     <body>

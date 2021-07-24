@@ -62,6 +62,9 @@ CREATE PROCEDURE `DarLike`(
 BEGIN
 	INSERT INTO likes(id_meme,id_usuario)
 		VALUES (codMeme,idUsuario);
+	UPDATE meme 
+		SET likes = likes + 1
+		WHERE id_meme = codMeme;
 END//
 DELIMITER ;
 
@@ -90,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `meme` (
   `id_usuario` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `likes` int(11) unsigned zerofill DEFAULT 00000000000,
   PRIMARY KEY (`id_meme`),
   KEY `Meme_Id_Usuario_Usuario_FK` (`id_usuario`),
   CONSTRAINT `usuario_id_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON UPDATE CASCADE
@@ -111,16 +115,18 @@ BEGIN
 					m.titulo_meme,
 					m.imagen_meme,
 					u.foto_usuario,
-					CAST(CAST(m.updated_at AS DATE) AS CHAR(10)) AS fecha		
+					CAST(CAST(m.updated_at AS DATE) AS CHAR(10)) AS fecha,
+					m.likes 
 			FROM meme m JOIN usuario u 
-				ON m.id_usuario = u.id_usuario
+								ON m.id_usuario = u.id_usuario
 				ORDER BY m.updated_at DESC;
 	ELSEIF Permiso = 'U' THEN 
 		SELECT	u.nombre_usuario,
 					m.titulo_meme,
 					m.imagen_meme,
 					u.foto_usuario,
-					CAST(CAST(m.updated_at AS DATE) AS CHAR(10)) AS fecha		
+					CAST(CAST(m.updated_at AS DATE) AS CHAR(10)) AS fecha,
+					m.id_meme	
 			FROM meme m JOIN usuario u 
 					ON m.idUsuario = u.idUsuario
 						WHERE u.id_usuario IN (SELECT id_amigo FROM amigos WHERE id_usaurio = idUsuario)
@@ -129,37 +135,51 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for table fun4you.persona
-DROP TABLE IF EXISTS `persona`;
-CREATE TABLE IF NOT EXISTS `persona` (
-  `id_persona` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_persona` varchar(40) NOT NULL,
-  `correo_persona` varchar(50) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id_persona`),
-  UNIQUE KEY `PERSONA_CORREO_PERSONA_UNIQUE` (`correo_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='La tabla persona almacenará los datos que están relacionados con las personas que tienen usuarios en Fun4U';
+-- Dumping structure for procedure fun4you.QuitarLike
+DROP PROCEDURE IF EXISTS `QuitarLike`;
+DELIMITER //
+CREATE PROCEDURE `QuitarLike`(
+	IN `memeSeleccionado` INT,
+	IN `usuarioSesion` INT
+)
+BEGIN
+	DELETE FROM likes
+		WHERE id_meme = memeSeleccionado AND id_usuario = usuarioSesion;
+END//
+DELIMITER ;
 
--- Data exporting was unselected.
+-- Dumping structure for procedure fun4you.Registro
+DROP PROCEDURE IF EXISTS `Registro`;
+DELIMITER //
+CREATE PROCEDURE `Registro`(
+	IN `NombrePersona` VARCHAR(50),
+	IN `CorreoPersona` VARCHAR(50),
+	IN `NombreUsuario` VARCHAR(50),
+	IN `Contrasena` VARCHAR(50),
+	IN `Foto` VARCHAR(500)
+)
+BEGIN
+	INSERT INTO usuario (nombre_persona, correo_persona,nombre_usuario, contrasena, foto_usuario)
+		VALUES (NombrePersona,CorreoPersona,NombreUsuario,Contrasena,Foto);	
+END//
+DELIMITER ;
 
 -- Dumping structure for table fun4you.usuario
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_persona` varchar(50) NOT NULL DEFAULT '',
+  `correo_persona` varchar(50) NOT NULL DEFAULT '',
   `nombre_usuario` varchar(40) NOT NULL,
   `contrasena` varchar(28) NOT NULL,
   `foto_usuario` varchar(500) NOT NULL DEFAULT 'https://i.pinimg.com/236x/f1/f5/15/f1f5153cabe32239c85842fb4d0ba3c8--ps.jpg',
   `permisos_usuario` char(1) NOT NULL DEFAULT 'U',
   `estado_usuario` char(1) NOT NULL DEFAULT 'A',
-  `id_persona` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `Usuario_Nombre_Usuario_Unique` (`nombre_usuario`),
-  KEY `Usuario_Id_Persona_Persona_FK` (`id_persona`),
-  CONSTRAINT `Usuario_Id_Persona_FK` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id_persona`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
+  UNIQUE KEY `Usuario_Nombre_Usuario_Unique` (`nombre_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
 
 -- Data exporting was unselected.
 

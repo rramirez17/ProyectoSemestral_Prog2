@@ -5,14 +5,14 @@
 --%>
 
         <%@ include file="header.jsp"%>
-        <%@page import="entidades.Meme"%>
+        <%@page import="entidades.Memes"%>
         <%@page import="java.util.List"%>
         <%@page import="procesos.ProcesosMemes"%>
 
 
         <%
             ProcesosMemes procesos = new ProcesosMemes();
-            List<Meme> memes = procesos.GetAllMemes();
+            List<Memes> memes = procesos.GetAllMemes();
         %>
         
         <div class="container">
@@ -20,7 +20,7 @@
               <div class="col-12 col-lg-12 order-lg-1">
                 <br>
                 <section class="py-4">
-                    <%for(Meme meme : memes){%>
+                  <%for(Memes meme : memes){%> 
                   <div class="mb-4 py-4">
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="d-flex flex-row align-items-center">
@@ -43,7 +43,7 @@
                       
                     </div>
                   </div>
-                      <%}%>
+                     <%}%> 
                
                 </section>
               </div>

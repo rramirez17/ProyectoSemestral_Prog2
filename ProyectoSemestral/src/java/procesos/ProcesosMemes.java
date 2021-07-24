@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package procesos;
-import entidades.Meme;
+import entidades.Memes;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,18 +24,18 @@ public class ProcesosMemes {
     }
     
    
-    public List<Meme> GetAllMemes(){
+    public List<Memes> GetAllMemes(){
         try{
 
             Statement stmt = _cn.createStatement();
             String query = "Call MostrarMemes('A','1')";
 
             
-            List<Meme> memes = new ArrayList<>();
+            List<Memes> memes = new ArrayList<>();
             
             ResultSet result = stmt.executeQuery(query);
             while(result.next()){
-                Meme meme = new Meme();
+                Memes meme = new Memes();
                 meme.setNombre_usuario(result.getString("nombre_usuario"));
                 meme.setTitulo_meme(result.getString("titulo_meme"));
                 meme.setImagen_meme(result.getString("imagen_meme"));
@@ -50,7 +50,7 @@ public class ProcesosMemes {
             
             return memes;
         }
-        catch(Exception e){
+        catch(SQLException e){
             int x = 5;
         }
         return null;

@@ -9,8 +9,6 @@
 <html lang="en">
 
 <head>
-    <style><%@include file="../css/style.css"%></style>
-    <style><%@include file="../css/header.css"%></style>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,11 +65,11 @@
             <h3>Raúl Ramírez</h3>
             <hr>
             <p>Joven de 20 años, cursa tercer año de Ingeniería de Software, con un particular interés en la política internacional y emocionado por haber formado parte de Fun4You.</p>
-            <img src="imagenes/fotos/raul.jpg">
+            <img src="imagenes/fotos/rau.jpg">
             <br><br><br><br><br><br>
         </section>
         <section class="qs-footer">
-            <img src="logo/Logo.png">
+            <img src="imagenes/logo/Logo.png">
             <div class="qs-ftext">
                 <p>Fun4You: Humor y mucho más!</p>
                 <p>Calle 2da, Av Justo Arosemena, 3-43</p>
