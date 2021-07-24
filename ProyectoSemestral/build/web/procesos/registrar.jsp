@@ -20,9 +20,10 @@
         persona.setContrasena(request.getParameter("contrasena"));
         persona.setFoto_usuario(request.getParameter("foto_usuario"));
         personasDb.RegistrarPersona(persona);
-        response.sendRedirect("../login.jsp")
+        
     }
-    catch(Exception e){}
-        response.sendRedirect("../registrate.jsp");
-    
+    catch(Exception e){
+        response.sendRedirect("ProyectoSemestral/registrate.jsp");
+    }
+        response.sendRedirect("../login.jsp");
 %>

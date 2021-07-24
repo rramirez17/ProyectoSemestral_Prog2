@@ -42,7 +42,7 @@
                 <div class="D2">
                     <div class="D3">
                         <p>¿Tienes una cuenta?
-                            <a href="Iniciar sesión.html">Inicia sesión</a>
+                            <a href="login.jsp">Inicia sesión</a>
                         </p> 
                     </div>
                 </div>
