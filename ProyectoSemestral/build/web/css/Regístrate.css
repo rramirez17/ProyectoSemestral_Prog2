@@ -21,11 +21,12 @@ body{
     height: 150px;
     margin-left: 16%;
     margin-bottom: 2%;
+    justify-content:center;
   }
 
 .centrado {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .D1{
@@ -34,7 +35,7 @@ body{
 }
 
 .texto{
-    width: 236px;
+    width: 400px;
     height: 36px;
     position: relative;
     background-color: rgb(233, 233, 233);

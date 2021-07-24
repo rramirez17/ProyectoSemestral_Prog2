@@ -33,8 +33,11 @@
                     <input type="text" name="nombre_usuario" class="texto" placeholder="Nombre de usuario">
                     <p class="etiqueta">Contraseña</p>
                     <input type="text" name="contrasena" class="texto" placeholder="Contraseña">
-                    <br><br>
+                    <p class="etiqueta">Foto de perfil</p>
+                    <input type="text" name="foto_usuario" class="texto" placeholder="Ingresa un url para tu foto de perfil debe terminar en .jpg o .png">
+                    <br><br><br><br><br><br>
                     <input type="submit" class="boton" value="Regístrate">
+                    
                 </div>
                 <div class="D2">
                     <div class="D3">
