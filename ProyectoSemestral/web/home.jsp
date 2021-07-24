@@ -6,20 +6,23 @@
 
         <%@ include file="header.jsp"%>
         <%@page import="entidades.Memes"%>
+        <%@page import="entidades.Personas"%>
         <%@page import="java.util.List"%>
         <%@page import="procesos.ProcesosMemes"%>
 
 
         <%
             int idUsuario = 0;
-            String permisoUsuario = 'U'
+            char permisoUsuario = 'U';
             if(session.getAttribute("id_usuario") != null){
                 idUsuario = (int)session.getAttribute("id_usuario");
-                permisoUsuario = (String)session.getAttribute("permiso_usuario");
+                permisoUsuario = (char)session.getAttribute("permiso_usuario");
             }
   
             ProcesosMemes procesos = new ProcesosMemes();
-            List<Memes> memes = procesos.GetAllMemes(idUsuario,permisoUsuario);
+            List<Memes> memes = procesos.GetAllMemes(permisoUsuario,idUsuario);
+            
+            
         %>
         
         <div class="container">
@@ -45,16 +48,16 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <%if(meme.getLiked() == 0){%>
-                            <a class="btn btn-default bg-transparent" href="procesos/like.jsp?id_meme=<%= meme.getId_meme() %>"><i class="bi bi-heart text-danger"></i></a><p><%= meme.getLikes() %> likes</p>
-                            <%}else{%>
-                                <a class="btn btn-default bg-transparent" href="procesos/dislike.jsp?id_meme=<%= meme.getId_meme() %>"><i class="bi bi-heart-fill text-danger"></i></a><p><%= meme.getLikes() %> likes</p>
+                            <a class="btn btn-default bg-transparent" onclick="<%procesos.DarLike(meme.getId_meme(),(int)session.getAttribute("id_usuario"));%>window.location.reload();"><i class="bi bi-heart text-danger"></i></a><p><%= meme.getLikes() %> likes</p>
+                            <%}if(meme.getLiked() == 1){%>
+                                <a class="btn btn-default bg-transparent" onclick="<%procesos.QuitarLike(meme.getId_meme(),(int)session.getAttribute("id_usuario"));%>window.location.reload();"><i class="bi bi-heart-fill text-danger"></i></a><p><%= meme.getLikes()%><p>
                             <%}%>
                          <% 
-                            if(session.getAttribute("permiso_usuario") = 'A'){
+                             char permit =(char)session.getAttribute("permiso_usuario");
+                            if( permit == 'A'){
                         %>
-                                <a class="btn btn-default bg-transparent"  href="procesos/delete.jsp?id_meme=<%= meme.getId_meme() %>">
-                                <i class="fas fa-trash">Borrar meme</i>  
-                            </a>
+                                <button onclick="<%procesos.BorrarMeme(meme.getId_meme());%>window.location.reload();"><i class="fas fa-trash">Borrar meme</i>  </button>
+                           
                          <%}%>
                       
                     </div>

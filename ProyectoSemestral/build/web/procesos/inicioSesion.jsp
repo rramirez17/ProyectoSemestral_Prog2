@@ -5,28 +5,26 @@
 --%>
 
 <%@page import="entidades.Personas"%>
-<%@page import="procesos.ProcesosUsuarios"%>
-<%@page import="entidades.Usuarios"%>
+<%@page import="procesos.ProcesosPersonas"%>
+
 <%
     try{
-        String nombre_usuario = request.getParameter("nombre_usuario");
-        String contrasena = request.getParameter("contrasena");
         
-        Usuarios usuario = new Usuarios();
-        usuario.setNombre_usuario(nombre_usuario);
-        usuario.setContrasena(contrasena);
         
-        ProcesosUsuarios usuarioDb = new ProcesosUsuarios();
+        ProcesosPersonas personas = new ProcesosPersonas();
         
-        Personas persona = usuarioDb.ValidarLoginUsuario(usuario);
+        Personas persona = new Personas();
+        persona.setNombre_usuario(request.getParameter("nombre_usuario"));
+        persona.setContrasena(request.getParameter("contrasena"));
+        Personas persona2 = new Personas();
+        persona2 = personas.ValidarLoginUsuario(persona);
         
         if (persona != null) {
-            session.setAttribute("ui", persona.getId_persona());
-            session.setAttribute("n", persona.getNombre_persona());
-            session.setAttribute("c", persona.getCorreo_persona());
+            session.setAttribute("id_usuario", persona2.getId_persona());
+            session.setAttribute("permiso_usuario", persona2.getPermisos_usuario());
             
             session.setAttribute("error", 0);
-            response.sendRedirect("../index.jsp");
+            response.sendRedirect("../home.jsp");
         }else{
             session.setAttribute("error", 1);
             response.sendRedirect("../login.jsp");

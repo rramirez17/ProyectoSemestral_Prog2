@@ -20,14 +20,14 @@
             <img src="imagenes/logo/Logo.png" alt="Logo de FUN4You" id ="logo">
             <section class="centrado">
                 <div class="D1">
-                    <form action="home.jsp">
-                    <p class="etiqueta">Correo electrónico</p>
-                    <input type="email" class="texto" placeholder="Correo electrónico">
-                    <p class="etiqueta">Contraseña</p>
-                    <input type="text" class="texto" placeholder="Contraseña">
-                    <br><br>
-                    <!-- aqui va el link a inicio -->
-                    <input type="submit" class="boton" value="Iniciar sesión">
+                    <form action="procesos/inicioSesion.jsp" method="post">
+                        <p class="etiqueta">Usuario</p>
+                        <input type="text" name="nombre_usuario" class="texto" placeholder="Usuario">
+                        <p class="etiqueta">Contraseña</p>
+                        <input type="text" name="contrasena" class="texto" placeholder="Contraseña">
+                        <br><br>
+                        <!-- aqui va el link a inicio -->
+                        <input type="submit" class="boton" value="Iniciar sesión">
                     </form>
                 </div>
                 <div class="D2">
@@ -44,7 +44,6 @@
                 <img src="imagenes/fotos/Inicio.png" alt="Branding de FUN4You">
             </section> 
         </div>
-        </article>
-    
+    </article>   
 </body>
 </html>

@@ -36,7 +36,7 @@ public class ProcesosMemes {
             
             result.close();
             stmt.close();
-           
+            return resultado;
         }
         catch(SQLException e){
             int x = 5;
@@ -44,7 +44,7 @@ public class ProcesosMemes {
         return resultado;
     }
    
-    public List<Memes> GetAllMemes(int idUsuario,String permiso){
+    public List<Memes> GetAllMemes(char permiso,int idUsuario){
         try{
 
             Statement stmt = _cn.createStatement();
@@ -63,7 +63,7 @@ public class ProcesosMemes {
                 meme.setFecha(result.getString("fecha")); 
                 meme.setLikes(result.getInt("likes"));
                 meme.setId_meme(result.getInt("id_meme"));
-                meme.setLiked(MemeLiked(meme.getId_meme(),idUsuario));
+                meme.setLiked(MemeLiked(result.getInt("id_meme"),idUsuario));
                 memes.add(meme);
             }
             
@@ -118,10 +118,10 @@ public class ProcesosMemes {
             
             stmt.executeQuery(query);
             stmt.close();
-
         }
         catch(Exception e){}
 
     }
+        
     
 }

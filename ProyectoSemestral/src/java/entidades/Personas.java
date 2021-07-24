@@ -84,4 +84,13 @@ public class Personas {
     private String nombre_usuario;
     private String contrasena;
     private String foto_usuario;
+
+    public char getPermisos_usuario() {
+        return permisos_usuario;
+    }
+
+    public void setPermisos_usuario(char permisos_usuario) {
+        this.permisos_usuario = permisos_usuario;
+    }
+    private char permisos_usuario;
 }
