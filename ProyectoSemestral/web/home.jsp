@@ -11,8 +11,15 @@
 
 
         <%
+            int idUsuario = 0;
+            String permisoUsuario = 'U'
+            if(session.getAttribute("id_usuario") != null){
+                idUsuario = (int)session.getAttribute("id_usuario");
+                permisoUsuario = (String)session.getAttribute("permiso_usuario");
+            }
+  
             ProcesosMemes procesos = new ProcesosMemes();
-            List<Memes> memes = procesos.GetAllMemes();
+            List<Memes> memes = procesos.GetAllMemes(idUsuario,permisoUsuario);
         %>
         
         <div class="container">
@@ -37,9 +44,18 @@
                       
                     </div>
                     <div class="d-flex justify-content-between">
-                      <button class="btn btn-text-dark d-flex align-items-center px-1" type="button">
-                          <i class="far fa-heart"></i>  <%= meme.getLikes() %>
-                      </button>
+                        <%if(meme.getLiked() == 0){%>
+                            <a class="btn btn-default bg-transparent" href="procesos/like.jsp?id_meme=<%= meme.getId_meme() %>"><i class="bi bi-heart text-danger"></i></a><p><%= meme.getLikes() %> likes</p>
+                            <%}else{%>
+                                <a class="btn btn-default bg-transparent" href="procesos/dislike.jsp?id_meme=<%= meme.getId_meme() %>"><i class="bi bi-heart-fill text-danger"></i></a><p><%= meme.getLikes() %> likes</p>
+                            <%}%>
+                         <% 
+                            if(session.getAttribute("permiso_usuario") = 'A'){
+                        %>
+                                <a class="btn btn-default bg-transparent"  href="procesos/delete.jsp?id_meme=<%= meme.getId_meme() %>">
+                                <i class="fas fa-trash">Borrar meme</i>  
+                            </a>
+                         <%}%>
                       
                     </div>
                   </div>

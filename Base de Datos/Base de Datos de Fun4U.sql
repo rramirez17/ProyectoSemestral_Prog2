@@ -34,6 +34,18 @@ CREATE TABLE IF NOT EXISTS `amigos` (
 
 -- Data exporting was unselected.
 
+-- Dumping structure for procedure fun4you.BorrarMeme
+DROP PROCEDURE IF EXISTS `BorrarMeme`;
+DELIMITER //
+CREATE PROCEDURE `BorrarMeme`(
+	IN `idMeme` INT
+)
+BEGIN
+	DELETE FROM meme 
+		WHERE id_meme = idMeme;
+END//
+DELIMITER ;
+
 -- Dumping structure for table fun4you.comentarios
 DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE IF NOT EXISTS `comentarios` (
@@ -97,9 +109,26 @@ CREATE TABLE IF NOT EXISTS `meme` (
   PRIMARY KEY (`id_meme`),
   KEY `Meme_Id_Usuario_Usuario_FK` (`id_usuario`),
   CONSTRAINT `usuario_id_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Todos los usuarios pueden subir memes a fun4u, en esta tabla se almacenan estos memes.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Todos los usuarios pueden subir memes a fun4u, en esta tabla se almacenan estos memes.';
 
 -- Data exporting was unselected.
+
+-- Dumping structure for procedure fun4you.MemeLiked
+DROP PROCEDURE IF EXISTS `MemeLiked`;
+DELIMITER //
+CREATE PROCEDURE `MemeLiked`(
+	IN `codMeme` INT,
+	IN `userID` INT
+)
+    COMMENT 'Procedimiento para determinar si el usuario le dio like al meme'
+BEGIN
+	IF EXISTS (SELECT * FROM likes WHERE id_meme = codMeme AND id_usuario = userID) THEN 
+		SELECT 1 AS existe;
+	ELSE 
+		SELECT 0 AS existe;
+	END IF;
+END//
+DELIMITER ;
 
 -- Dumping structure for procedure fun4you.MostrarMemes
 DROP PROCEDURE IF EXISTS `MostrarMemes`;
@@ -116,7 +145,8 @@ BEGIN
 					m.imagen_meme,
 					u.foto_usuario,
 					CAST(CAST(m.updated_at AS DATE) AS CHAR(10)) AS fecha,
-					m.likes 
+					m.likes,
+					m.id_meme
 			FROM meme m JOIN usuario u 
 								ON m.id_usuario = u.id_usuario
 				ORDER BY m.updated_at DESC;
@@ -145,6 +175,9 @@ CREATE PROCEDURE `QuitarLike`(
 BEGIN
 	DELETE FROM likes
 		WHERE id_meme = memeSeleccionado AND id_usuario = usuarioSesion;
+	UPDATE meme 
+		SET likes = likes - 1
+		WHERE id_meme = codMeme;
 END//
 DELIMITER ;
 
@@ -179,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `Usuario_Nombre_Usuario_Unique` (`nombre_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
 
 -- Data exporting was unselected.
 
