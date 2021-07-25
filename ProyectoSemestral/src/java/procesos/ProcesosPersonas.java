@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,7 +21,7 @@ public class ProcesosPersonas {
     Connection _cn; /*Se le coloca el gion bajo para saber que es una variable global*/
     
     public ProcesosPersonas(){
-        _cn = new Conexion().OpenDb();
+        _cn = new conexion().OpenDb();
     }
     
     public void RegistrarPersona(Personas persona){
@@ -61,6 +63,34 @@ public class ProcesosPersonas {
         catch(Exception e){}
         return null;
     
+    }
+    
+    public List<Personas> GetAllPersonasCoincidencia(String ref){
+        try{
+            Statement stmt = _cn.createStatement();
+            String query = "Call ObtenerUsuariosPorCoincidencia('"+ref+"')";
+            
+            List<Personas> personas = new ArrayList<>();
+            
+            ResultSet result = stmt.executeQuery(query);
+            while(result.next()){
+                Personas persona = new Personas();
+                persona.setNombre_usuario(result.getString("nombre_usuario"));
+                persona.setFoto_usuario(result.getString("foto"));
+                persona.setId_persona(result.getInt("id_usuario"));
+                
+                personas.add(persona);
+            }
+            
+            result.close();
+            stmt.close();
+            
+            return personas;
+        }
+        catch(Exception e){
+            int x = 5;
+        }
+        return null;
     }
 }
 

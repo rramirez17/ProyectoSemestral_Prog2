@@ -16,12 +16,12 @@
 </head>
 <body>
     <header>
-        <section class="S1">
+        <section class="S1" style="text-align: center; margin-left: 0px">
             <img src="imagenes/logo/Logo.png" alt="Logo de FUN4You" id ="logo">
         </section>
     </header>
     <center>
-    <article class="centrado">
+        <article class="centrado">
         <form action="procesos/registrar.jsp" method="post">
             <div class="principal">
                 <div class="D1">

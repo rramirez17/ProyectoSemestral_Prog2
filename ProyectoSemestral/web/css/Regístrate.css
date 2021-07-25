@@ -8,25 +8,25 @@ body{
     height: 200px;
 }
 
-/*.S1 img{
+.S1 img{
   width: 150px;
   margin-top: 50px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-}*/
-
+}
+/*
 #logo{
     width: 150px;
     height: 150px;
     margin-left: 16%;
     margin-bottom: 2%;
     justify-content:center;
-  }
+  }*/
 
 .centrado {
     display: flex;
-    justify-content: left;
+    justify-content: center;
 }
 
 .D1{

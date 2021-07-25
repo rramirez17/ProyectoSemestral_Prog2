@@ -20,7 +20,7 @@ public class ProcesosMemes {
     Connection _cn;
     
     public ProcesosMemes(){
-        _cn = new Conexion().OpenDb();
+        _cn = new conexion().OpenDb();
     }
     
     public int MemeLiked(int id_meme, int id_usuario){
@@ -122,6 +122,6 @@ public class ProcesosMemes {
         catch(Exception e){}
 
     }
-        
-    
+      
+
 }

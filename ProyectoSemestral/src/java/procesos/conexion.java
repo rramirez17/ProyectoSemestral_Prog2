@@ -13,11 +13,11 @@ import java.sql.SQLException;
  *
  * @author raulr
  */
-public class Conexion {
+public class conexion {
     public Connection OpenDb(){
         try{
             Class.forName("org.mariadb.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/fun4you", "root", "ROOT");
+            return DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/fun4you", "root", "angela");
         }
         catch(ClassNotFoundException cnfe){
             System.out.println("Error en la libreria mariadb");
