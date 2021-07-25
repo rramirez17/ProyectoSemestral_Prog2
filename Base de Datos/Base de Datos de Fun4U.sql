@@ -156,9 +156,10 @@ BEGIN
 					m.imagen_meme,
 					u.foto_usuario,
 					CAST(CAST(m.updated_at AS DATE) AS CHAR(10)) AS fecha,
-					m.id_meme	
+					m.likes,
+					m.id_meme
 			FROM meme m JOIN usuario u 
-					ON m.idUsuario = u.idUsuario
+								ON m.id_usuario = u.id_usuario
 						WHERE u.id_usuario IN (SELECT id_amigo FROM amigos WHERE id_usaurio = idUsuario)
 							ORDER BY m.updated_at DESC;	
 	END IF;
@@ -211,10 +212,30 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `Usuario_Nombre_Usuario_Unique` (`nombre_usuario`)
+  UNIQUE KEY `Usuario_Nombre_Usuario_Unique` (`nombre_usuario`),
+  UNIQUE KEY `Usuario_Corre_Usuario_Unique` (`correo_persona`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
 
 -- Data exporting was unselected.
+
+-- Dumping structure for procedure fun4you.ValidarUsuario
+DROP PROCEDURE IF EXISTS `ValidarUsuario`;
+DELIMITER //
+CREATE PROCEDURE `ValidarUsuario`(
+	IN `nom_u` VARCHAR(50),
+	IN `pass` VARCHAR(50)
+)
+BEGIN
+    SELECT
+        id_usuario,
+        nombre_persona,
+        correo_persona,
+		  nombre_usuario,
+        permisos_usuario
+	    FROM usuario
+		    	WHERE nombre_usuario = nom_u AND contrasena = pass;
+END//
+DELIMITER ;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
