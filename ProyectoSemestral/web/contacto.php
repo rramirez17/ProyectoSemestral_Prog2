@@ -85,13 +85,23 @@
                 <input type="submit" name="send" class="btn-submit"
                     value="Enviar" />
             </div>
-            
             <?php
-                $conn = mysqli_connect("localhost", "root", "root", "fun4you") or die("Connection Error: " . mysqli_error($conn));
-                mysqli_query($conn, "INSERT INTO 'contacto' VALUES ('" . $name. "', '" . $email. "','" . $subject. "','" . $content. "')");
-                $insert_id = mysqli_insert_id($conn);
-                if(!empty($insert_id)) {
-                $message = "Tu mensaje se envio ";
+                if(!empty($_POST["send"])) {
+                        $name = $_POST["userName"];
+                        $email = $_POST["userEmail"];
+                        $subject = $_POST["subject"];
+                        $content = $_POST["content"];
+                        $id_usuario = $_SESSION["id_usuario"];
+
+                        $conn = mysqli_connect("localhost", "root", "ROOT", "fun4you") or die("Connection Error: " . mysqli_error($conn));
+                        mysqli_query($conn, "INSERT INTO 'contacto' (nombre_usuario, usuario_persona,asunto,contenido,id_usuario) VALUES ('" . $name. "', '" . $email. "','" . $subject. "','" . $content. "')");
+                        $insert_id = mysqli_insert_id($conn);
+                        //if(!empty($insert_id)) {
+                           $message = "Mensaje enviado.";
+                           $type = "success";
+                        //}
+                }
+                require_once "procesos/contact-view.php";
             ?>
 
         </form>
