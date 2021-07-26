@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package procesos;
-import Entidades.Comentarios;
+import entidades.Comentarios;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -19,7 +19,7 @@ public class ProcesosComentarios {
     Connection _cn;
     
     public ProcesosComentarios(){
-        _cn = new Conexion().OpenDb();
+        _cn = new conexion().OpenDb();
     }
     
     public int GuardarComentario(Comentarios comentario){
