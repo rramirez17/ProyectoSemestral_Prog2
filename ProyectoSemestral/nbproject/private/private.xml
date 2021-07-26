@@ -3,11 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/sebar/OneDrive/Escritorio/Nueva%20carpeta/ProyectoSemestral/web/login.jsp</file>
             <file>file:/C:/Users/sebar/OneDrive/Escritorio/Nueva%20carpeta/ProyectoSemestral/web/registrate.jsp</file>
             <file>file:/C:/Users/sebar/OneDrive/Escritorio/Nueva%20carpeta/ProyectoSemestral/web/procesos/registrar.jsp</file>
             <file>file:/C:/Users/sebar/OneDrive/Escritorio/Nueva%20carpeta/ProyectoSemestral/src/java/procesos/conexion.java</file>
             <file>file:/C:/Users/sebar/OneDrive/Escritorio/Nueva%20carpeta/ProyectoSemestral/src/java/procesos/ProcesosPersonas.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/contacto.php</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/enviarCorreo.php</file>
+=======
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/procesos/registrar.jsp</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/css/Regístrate.css</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/src/java/procesos/ProcesosPersonas.java</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/header.jsp</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/buscar.jsp</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/home.jsp</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/src/java/procesos/ProcesosMemes.java</file>
+            <file>file:/C:/Users/Angela/OneDrive/Documentos/Programación%20II/Semestral/ProyectoSemestral/web/registrate.jsp</file>
+>>>>>>> 65dad19924c065c3a439d76a45a822d84ef63739
+>>>>>>> 0e4f8d9718aa4f44e49dad26f99256e5dabc094d
         </group>
     </open-files>
 </project-private>
