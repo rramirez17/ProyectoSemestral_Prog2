@@ -36,7 +36,7 @@
             <a href="login.jsp">Salir</a>
         </li>
         <li class="navli">
-            <a href="contacto.jsp">Contáctanos</a>
+            <a href="contacto.php">Contáctanos</a>
         </li>
         <li class="navli">
             <a href="nosotros.jsp"> Nosotros</a>

@@ -22,32 +22,34 @@
     </head>
     <body>
          
-        <ul id="navBar">
-           <li class="active">
-                <a href="home.jsp"><img src="imagenes/logo/Logo.png" ></a>
-            </li>
-            <li class="navli">
-                <a href="login.jsp"><i class="fas fa-sign-out-alt"></i>  Salir</a>
-            </li>
-            <li class="navli">
-                <a href="contacto.php" style="font-weight: bolder;"><i class="fas fa-file"></i>  Contáctanos</a>
-            </li>
-            <li class="navli">
-                <a href="nosotros.jsp" style="font-weight: bolder;"><i class="fas fa-users"></i>  Nosotros</a>
-            </li>
-            <li class="navli">
-                <a href="Perfil.jsp"><i class="fas fa-user"></i>  Perfil</a>
-            </li>
-            <li class="navli">
-                <a href="Buscar.jsp"><i class="fas fa-search"></i>  Buscar</a>
-            </li>
-            <li class="navli">
-                <a href="home.jsp"><i class="fas fa-home"></i>  Inicio</a>
-            </li>
-            <li class="navli">
-                <a href="home.jsp"><i class="fas fa-upload"></i>  Subir un meme</a>
-            </li>
-        </ul>
+      <ul id="navBar">
+        <li class="active">
+            <a href="home.jsp"><img src="imagenes/logo/Logo.png" ></a>
+        </li>
+        <li class="navli">
+            <a href="login.jsp">Salir</a>
+        </li>
+        <li class="navli">
+            <a href="contacto.php">Contáctanos</a>
+        </li>
+        <li class="navli">
+            <a href="nosotros.jsp"> Nosotros</a>
+        </li>
+        <li class="navli">
+            <a href="Perfil.jsp"> Perfil</a>
+        </li>
+        <li class="navli">
+            <a href="home.jsp">Inicio</a>
+        </li>
+        <li class="navli" style="margin-right: 7%"> 
+            <form action="buscar.jsp"> 
+                <div class="input-group">
+                    <input type="text" name="ref" class="form-control" placeholder="Buscar" style="width: 350px"/> 
+                    
+                </div>
+            </form> 
+        </li>
+    </ul>
     <br>
     <br>
     <br>
@@ -84,10 +86,19 @@
                     value="Enviar" />
             </div>
             
+            <?php
+                $conn = mysqli_connect("localhost", "root", "root", "fun4you") or die("Connection Error: " . mysqli_error($conn));
+                mysqli_query($conn, "INSERT INTO 'contacto' VALUES ('" . $name. "', '" . $email. "','" . $subject. "','" . $content. "')");
+                $insert_id = mysqli_insert_id($conn);
+                if(!empty($insert_id)) {
+                $message = "Tu mensaje se envio ";
+            ?>
+
         </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="javascript/validarFormularioContacto.js"></script>
 </body>
+
 </html>

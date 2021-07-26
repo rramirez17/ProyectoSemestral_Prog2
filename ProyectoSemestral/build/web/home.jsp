@@ -30,6 +30,7 @@
               <div class="col-10 col-lg-12 order-lg-1">
                 <br>
                 <section class="py-4">
+                <%if(memes.size() > 0){%>
                   <%for(Memes meme : memes){%> 
                   <div class="mb-4 py-4">
                     <div class="d-flex justify-content-between align-items-center">
@@ -62,7 +63,10 @@
                       
                     </div>
                   </div>
-                     <%}%> 
+                     <%}%>
+                   <%}else{%>
+                         <h2 style="margin-top: 100px; margin-left: 25%">No tienes amigos, prueba fun4you con amigos!</h2>
+                     <%}%>
                
                 </section>
               </div>

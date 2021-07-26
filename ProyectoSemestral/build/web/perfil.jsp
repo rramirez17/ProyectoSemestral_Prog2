@@ -31,7 +31,7 @@
                 <div class="col-lg-4">
                     <br><br>
                   <div class="border-bottom text-center pb-4" >
-                    <img src="<%=(String)session.getAttribute("foto_usuario")%>" alt="<%=(String)session.getAttribute("nombre_usuario")%>"  class="img-lg rounded-circle mb-3">
+                    <img src="<%=(String)session.getAttribute("foto_usuario")%>" alt="<%=(String)session.getAttribute("nombre_usuario")%>"  class="img-lg rounded-circle mb-3" style="width:300px;height:300px">
                     
                     <div class="mb-3">
                       <h3><%=(String)session.getAttribute("nombre_usuario")%></h3>
@@ -46,6 +46,7 @@
                 
                   
                   <div class="profile-feed" style="margin-left:20%">
+                     <%if(memes.size() > 0){%>
                        <%for(Memes meme : memes){%> 
                   <div class="mb-4 py-4">
                     <div class="d-flex justify-content-between align-items-center">
@@ -70,12 +71,12 @@
                             <%}%>
                          
                                 <button onclick=""><i class="fas fa-trash">Borrar meme</i>  </button>
-                         
-                      
                     </div>
                   </div>
                      <%}%>
-                   
+                   <%}else{%>
+                         <h2>Anímate a compartir un meme!</h2>
+                     <%}%>
                 
                   </div>
                 </div>

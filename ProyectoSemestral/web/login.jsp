@@ -24,7 +24,7 @@
                         <p class="etiqueta">Usuario</p>
                         <input type="text" name="nombre_usuario" class="texto" placeholder="Usuario">
                         <p class="etiqueta">Contraseña</p>
-                        <input type="text" name="contrasena" class="texto" placeholder="Contraseña">
+                        <input type="password" name="contrasena" class="texto" placeholder="Contraseña">
                         <br><br>
                         <!-- aqui va el link a inicio -->
                         <input type="submit" class="boton" value="Iniciar sesión">
