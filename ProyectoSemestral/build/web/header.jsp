@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;800;900&display=swap">
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/contacto.css" rel="stylesheet" />
         <title>Fun4U</title>
     </head>
     <body>
@@ -33,7 +34,7 @@
                 <a href="login.jsp"><i class="fas fa-sign-out-alt"></i>  Salir</a>
             </li>
             <li class="navli">
-                <a href="contacto.jsp" style="font-weight: bolder;"><i class="fas fa-file"></i>  Contáctanos</a>
+                <a href="contacto.php" style="font-weight: bolder;"><i class="fas fa-file"></i>  Contáctanos</a>
             </li>
             <li class="navli">
                 <a href="nosotros.jsp" style="font-weight: bolder;"><i class="fas fa-users"></i>  Nosotros</a>

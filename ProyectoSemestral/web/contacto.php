@@ -1,12 +1,7 @@
-<%-- 
-    Document   : header
-    Created on : Jul 22, 2021, 1:36:54 PM
-    Author     : raulr
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-    <head>
+<html>
+<head>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/home.css" rel="stylesheet" />
         <link href="css/style.css" rel="stylesheet" />
@@ -26,6 +21,7 @@
         <title>Fun4U</title>
     </head>
     <body>
+         
         <ul id="navBar">
            <li class="active">
                 <a href="home.jsp"><img src="imagenes/logo/Logo.png" ></a>
@@ -52,3 +48,46 @@
                 <a href="home.jsp"><i class="fas fa-upload"></i>  Subir un meme</a>
             </li>
         </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+        <div class="form-container" style = "margin-top:15%; margin-left: 25%">
+        <form name="frmContact" id="frmContact" method="post"
+            action="" enctype="multipart/form-data"
+            onsubmit="return validarFormularioContacto()">
+
+            <div class="input-row">
+                <label style="padding-top: 20px;">Nombre</label> <span
+                    id="userName-info" class="info"></span><br /> <input
+                    type="text" class="input-field" name="userName"
+                    id="userName" />
+            </div>
+            <div class="input-row">
+                <label>Correo Electronico</label> <span id="userEmail-info"
+                    class="info"></span><br /> <input type="text"
+                    class="input-field" name="userEmail" id="userEmail" />
+            </div>
+            <div class="input-row">
+                <label>Asunto</label> <span id="subject-info"
+                    class="info"></span><br /> <input type="text"
+                    class="input-field" name="subject" id="subject" />
+            </div>
+            <div class="input-row">
+                <label>Mensaje</label> <span id="userMessage-info"
+                    class="info"></span><br />
+                <textarea name="content" id="content"
+                    class="input-field" cols="60" rows="6"></textarea>
+            </div>
+            <div>
+                <input type="submit" name="send" class="btn-submit"
+                    value="Enviar" />
+            </div>
+            
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="javascript/validarFormularioContacto.js"></script>
+</body>
+</html>
