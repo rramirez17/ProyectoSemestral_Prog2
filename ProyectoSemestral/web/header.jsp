@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/buscar.css">
+    <link rel="stylesheet" href="css/perfil.css">
     <title>Fun4U</title>
 </head>
 <body>

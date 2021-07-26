@@ -55,6 +55,8 @@ public class ProcesosPersonas {
                 Personas personaout = new Personas();
                 personaout.setId_persona(result.getInt("id_usuario"));
                 String permisos = result.getString("permisos_usuario");
+                personaout.setFoto_usuario(result.getString("foto_usuario"));
+                personaout.setNombre_usuario(result.getString("nombre_usuario"));
                 personaout.setPermisos_usuario(permisos.charAt(0));
                
                 return personaout;

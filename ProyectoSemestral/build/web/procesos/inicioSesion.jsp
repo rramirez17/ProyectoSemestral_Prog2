@@ -22,6 +22,8 @@
         if (persona != null) {
             session.setAttribute("id_usuario", persona2.getId_persona());
             session.setAttribute("permiso_usuario", persona2.getPermisos_usuario());
+            session.setAttribute("foto_usuario",persona2.getFoto_usuario());
+            session.setAttribute("nombre_usuario",persona2.getNombre_usuario());
             
             session.setAttribute("error", 0);
             response.sendRedirect("../home.jsp");

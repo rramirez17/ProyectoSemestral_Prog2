@@ -44,11 +44,11 @@ public class ProcesosMemes {
         return resultado;
     }
    
-    public List<Memes> GetAllMemes(char permiso,int idUsuario){
+    public List<Memes> GetAllMemes(char permiso,int id_usuario){
         try{
 
             Statement stmt = _cn.createStatement();
-            String query = "Call MostrarMemes('"+permiso+"','"+idUsuario+"')";
+            String query = "Call MostrarMemes('"+permiso+"','"+id_usuario+"')";
 
             
             List<Memes> memes = new ArrayList<>();
@@ -63,7 +63,41 @@ public class ProcesosMemes {
                 meme.setFecha(result.getString("fecha")); 
                 meme.setLikes(result.getInt("likes"));
                 meme.setId_meme(result.getInt("id_meme"));
-                meme.setLiked(MemeLiked(result.getInt("id_meme"),idUsuario));
+                meme.setLiked(MemeLiked(result.getInt("id_meme"),id_usuario));
+                memes.add(meme);
+            }
+            
+            result.close();
+            stmt.close();
+            
+            return memes;
+        }
+        catch(SQLException e){
+            int x = 5;
+        }
+        return null;
+    }
+    
+    public List<Memes> GetAllMemesUser(int iduser){
+        try{
+
+            Statement stmt = _cn.createStatement();
+            String query = "Call GetAllMemesUser('"+iduser+"')";
+
+            
+            List<Memes> memes = new ArrayList<>();
+            
+            ResultSet result = stmt.executeQuery(query);
+            while(result.next()){
+                Memes meme = new Memes();
+                meme.setNombre_usuario(result.getString("nombre_usuario"));
+                meme.setTitulo_meme(result.getString("titulo_meme"));
+                meme.setImagen_meme(result.getString("imagen_meme"));
+                meme.setFoto_usuario(result.getString("foto_usuario"));
+                meme.setFecha(result.getString("fecha")); 
+                meme.setLikes(result.getInt("likes"));
+                meme.setId_meme(result.getInt("id_meme"));
+                meme.setLiked(MemeLiked(result.getInt("id_meme"),iduser));
                 memes.add(meme);
             }
             
