@@ -27,7 +27,7 @@
         
         <div class="container">
             <div class="row">
-              <div class="col-12 col-lg-12 order-lg-1">
+              <div class="col-10 col-lg-12 order-lg-1">
                 <br>
                 <section class="py-4">
                   <%for(Memes meme : memes){%> 
@@ -56,7 +56,7 @@
                              char permit =(char)session.getAttribute("permiso_usuario");
                             if( permit == 'A'){
                         %>
-                                <button onclick="<%procesos.BorrarMeme(meme.getId_meme());%>window.location.reload();"><i class="fas fa-trash">Borrar meme</i>  </button>
+                                <button onclick=""><i class="fas fa-trash">Borrar meme</i>  </button>
                            
                          <%}%>
                       
