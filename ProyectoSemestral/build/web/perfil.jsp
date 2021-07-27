@@ -25,26 +25,20 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body" >
-                
               <div class="row">
-                  
                 <div class="col-lg-4">
                     <br><br>
                   <div class="border-bottom text-center pb-4" >
                     <img src="<%=(String)session.getAttribute("foto_usuario")%>" alt="<%=(String)session.getAttribute("nombre_usuario")%>"  class="img-lg rounded-circle mb-3" style="width:300px;height:300px">
-                    
                     <div class="mb-3">
-                      <h3><%=(String)session.getAttribute("nombre_usuario")%></h3>
-                      
+                        <h3><%=(String)session.getAttribute("nombre_usuario")%> <a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></h3>
+                        <br>
+                        <button type="button" class="btn btn-warning btn-cons">Ver amigos</button> 
                     </div>
-                    
                   </div>
- 
                 </div>
                 <div class="col-lg-8">
                     <br><br>
-                
-                  
                   <div class="profile-feed" style="margin-left:20%">
                      <%if(memes.size() > 0){%>
                        <%for(Memes meme : memes){%> 
@@ -57,11 +51,9 @@
                           <p class="small text-muted mb-0"><%= meme.getFecha() %></p>
                         </div>
                       </div>
-                      
                     </div><img  class="rounded w-100 mt-3" src="<%= meme.getImagen_meme() %>" alt="<%= meme.getTitulo_meme() %>">
                     <div class="mt-3">
                       <h4 class="h5"><%= meme.getTitulo_meme() %></h4>
-                      
                     </div>
                     <div class="d-flex justify-content-between">
                         <%if(meme.getLiked() == 0){%>
@@ -69,7 +61,6 @@
                             <%}if(meme.getLiked() == 1){%>
                                 <a class="btn btn-default bg-transparent" onclick="<%memesDb.QuitarLike(meme.getId_meme(),(int)session.getAttribute("id_usuario"));%>window.location.reload();"><i class="bi bi-heart-fill text-danger"></i></a><p><%= meme.getLikes()%><p>
                             <%}%>
-                         
                                 <button onclick=""><i class="fas fa-trash">Borrar meme</i>  </button>
                     </div>
                   </div>
@@ -77,7 +68,6 @@
                    <%}else{%>
                          <h2>Anímate a compartir un meme!</h2>
                      <%}%>
-                
                   </div>
                 </div>
               </div>

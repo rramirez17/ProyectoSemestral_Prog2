@@ -1,9 +1,11 @@
 <%-- 
-    Document   : perfil
-    Created on : Jul 6, 2021, 4:37:09 PM
-    Author     : raulr
+    Document   : perfilBúsqueda
+    Created on : 07/26/2021, 8:20:46 p. m.
+    Author     : Angela
 --%>
 
+<%@page import="entidades.Personas"%>
+<%@page import="procesos.ProcesosPersonas"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="entidades.Memes"%>
@@ -12,10 +14,15 @@
 <!DOCTYPE html>
 
 <%
-    int iduser = (int)session.getAttribute("id_usuario");
+    int iduser = (int)session.getAttribute("iduserbuscar");
+    String foto = request.getParameter("foto");
+   
     
     ProcesosMemes memesDb = new ProcesosMemes();    
     List<Memes> memes = memesDb.GetAllMemesUser(iduser);  
+
+    ProcesosPersonas personas = new ProcesosPersonas();
+    Personas persona = new Personas();
 
 %>
 
@@ -29,11 +36,11 @@
                 <div class="col-lg-4">
                     <br><br>
                   <div class="border-bottom text-center pb-4" >
-                    <img src="<%=(String)session.getAttribute("foto_usuario")%>" alt="<%=(String)session.getAttribute("nombre_usuario")%>"  class="img-lg rounded-circle mb-3" style="width:300px;height:300px">
+                    <img src="<%=(String)session.getAttribute("fotoub")%>" alt="<%=(String)session.getAttribute("nombreub")%>"  class="img-lg rounded-circle mb-3" style="width:300px;height:300px">
                     <div class="mb-3">
-                        <h3><%=(String)session.getAttribute("nombre_usuario")%> <a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></h3>
+                        <h3><%=(String)session.getAttribute("nombreub")%></h3>
                         <br>
-                        <button type="button" class="btn btn-warning btn-cons">Ver amigos</button> 
+                        <button type="button" class="btn btn-success btn-cons" >Seguir</button>
                     </div>
                   </div>
                 </div>

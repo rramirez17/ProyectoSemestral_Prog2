@@ -116,6 +116,18 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento fun4you.InsertarAmigo
+DROP PROCEDURE IF EXISTS `InsertarAmigo`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarAmigo`(
+	IN `idamigo` INT
+)
+BEGIN
+	INSERT INTO amigos(id_usuario)
+	VALUES (idamigo);
+END//
+DELIMITER ;
+
 -- Volcando estructura para tabla fun4you.likes
 DROP TABLE IF EXISTS `likes`;
 CREATE TABLE IF NOT EXISTS `likes` (
@@ -199,6 +211,25 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento fun4you.ObtenerAmigo
+DROP PROCEDURE IF EXISTS `ObtenerAmigo`;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ObtenerAmigo`(
+	IN `idamigo` INT
+
+
+)
+BEGIN
+	SELECT
+		amigos.id_usuario,
+		usuario.nombre_usuario,
+		usuario.foto_usuario AS foto
+	FROM amigos
+	INNER JOIN usuario ON amigos.id_usuario = usuario.id_usuario
+	WHERE id_usuario = idamigo;
+END//
+DELIMITER ;
+
 -- Volcando estructura para procedimiento fun4you.ObtenerUsuariosPorCoincidencia
 DROP PROCEDURE IF EXISTS `ObtenerUsuariosPorCoincidencia`;
 DELIMITER //
@@ -267,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `Usuario_Nombre_Usuario_Unique` (`nombre_usuario`),
   UNIQUE KEY `Usuario_Corre_Usuario_Unique` (`correo_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
 
 -- La exportación de datos fue deseleccionada.
 -- Volcando estructura para procedimiento fun4you.ValidarUsuario
