@@ -60,8 +60,9 @@ public class ProcesosMemes {
                 meme.setFecha(result.getString("fecha")); 
                 meme.setLikes(result.getInt("likes"));
                 meme.setId_meme(result.getInt("id_meme"));
+
+                
                 memes.add(meme);
- 
             }
             
             result.close();
