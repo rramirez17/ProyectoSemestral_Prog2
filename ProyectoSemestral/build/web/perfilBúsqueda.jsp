@@ -30,7 +30,7 @@
 %>
 
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
-<div class="container"style ="margin-left:15%">
+<div class="container" style="margin-top:120px; margin-left:100px">
       <div class="row">
         <div class="col-12">
           <div class="card">

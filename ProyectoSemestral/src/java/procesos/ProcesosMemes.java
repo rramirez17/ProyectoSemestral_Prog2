@@ -64,6 +64,7 @@ public class ProcesosMemes {
                 meme.setFecha(result.getString("fecha")); 
                 meme.setLikes(result.getInt("likes"));
                 meme.setId_meme(result.getInt("id_meme"));
+
                 
                 memes.add(meme);
             }
@@ -157,6 +158,21 @@ public class ProcesosMemes {
             stmt.close();
         }
         catch(Exception e){}
+
+    }
+    
+     public void NuevoMeme(String titulo, String imagen, int idUsuario){
+
+        try{
+            Statement stmt = _cn.createStatement();
+            String query = "Call AgregarMeme('"+titulo+"','"+imagen+"','"+idUsuario+"')";
+     
+            stmt.executeQuery(query);
+            stmt.close();
+        }
+        catch(Exception e){
+            int x=2;
+        }
 
     }
       

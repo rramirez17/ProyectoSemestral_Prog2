@@ -60,7 +60,7 @@
                              char permit =(char)session.getAttribute("permiso_usuario");
                             if( permit == 'A'){
                         %>
-                              <a class="btn btn-danger" href="procesos/borrar.jsp?Mid=<%= meme.getId_meme() %>"><i class="bi bi-trash"></i>Borrar meme</a>
+                              <a  href="procesos/borrar.jsp?Mid=<%= meme.getId_meme() %>"><i class="bi bi-trash"></i>Borrar meme</a>
                            
                          <%}%>
                       
