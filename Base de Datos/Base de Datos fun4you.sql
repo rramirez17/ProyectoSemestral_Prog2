@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               10.6.3-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win64
--- HeidiSQL Version:             11.3.0.6295
+-- Versión del servidor:         10.3.7-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,15 +10,14 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for fun4you
+-- Volcando estructura de base de datos para fun4you
 DROP DATABASE IF EXISTS `fun4you`;
-CREATE DATABASE IF NOT EXISTS `fun4you` /*!40100 DEFAULT CHARACTER SET utf8mb3 */;
+CREATE DATABASE IF NOT EXISTS `fun4you` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `fun4you`;
 
--- Dumping structure for table fun4you.amigos
+-- Volcando estructura para tabla fun4you.amigos
 DROP TABLE IF EXISTS `amigos`;
 CREATE TABLE IF NOT EXISTS `amigos` (
   `id_amigo` int(11) NOT NULL,
@@ -30,14 +29,13 @@ CREATE TABLE IF NOT EXISTS `amigos` (
   KEY `Amigos_Id_Amigo_Usuario_FK` (`id_amigo`),
   CONSTRAINT `amigos_id_amigo_usuario_fk` FOREIGN KEY (`id_amigo`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `amigos_id_usuario_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='La tabla amigos alamcena los amigos de los usuarios en fun4u ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='La tabla amigos alamcena los amigos de los usuarios en fun4u ';
 
--- Data exporting was unselected.
-
--- Dumping structure for procedure fun4you.BorrarMeme
+-- La exportación de datos fue deseleccionada.
+-- Volcando estructura para procedimiento fun4you.BorrarMeme
 DROP PROCEDURE IF EXISTS `BorrarMeme`;
 DELIMITER //
-CREATE PROCEDURE `BorrarMeme`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BorrarMeme`(
 	IN `idMeme` INT
 )
 BEGIN
@@ -46,7 +44,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for table fun4you.comentarios
+-- Volcando estructura para tabla fun4you.comentarios
 DROP TABLE IF EXISTS `comentarios`;
 CREATE TABLE IF NOT EXISTS `comentarios` (
   `id_comentario` int(11) NOT NULL AUTO_INCREMENT,
@@ -60,11 +58,10 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   KEY `Comentarios_Id_Usuario_Usuario_FK` (`id_usuario`),
   CONSTRAINT `comentarios_id_meme_fk` FOREIGN KEY (`id_meme`) REFERENCES `meme` (`id_meme`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `comentarios_id_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='En esta tabla se guardan los comentarios de cada meme. El id del comentario permite que un usuario comente varias veces en un meme.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='En esta tabla se guardan los comentarios de cada meme. El id del comentario permite que un usuario comente varias veces en un meme.';
 
--- Data exporting was unselected.
-
--- Dumping structure for table fun4you.contacto
+-- La exportación de datos fue deseleccionada.
+-- Volcando estructura para tabla fun4you.contacto
 DROP TABLE IF EXISTS `contacto`;
 CREATE TABLE IF NOT EXISTS `contacto` (
   `id_contacto` int(11) NOT NULL AUTO_INCREMENT,
@@ -78,14 +75,13 @@ CREATE TABLE IF NOT EXISTS `contacto` (
   PRIMARY KEY (`id_contacto`),
   KEY `Contacto_id_usuario_fk` (`id_usuario`),
   CONSTRAINT `contacto_id_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='Tabla que almacena la informacion de los formularios de contacto';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabla que almacena la informacion de los formularios de contacto';
 
--- Data exporting was unselected.
-
--- Dumping structure for procedure fun4you.DarLike
+-- La exportación de datos fue deseleccionada.
+-- Volcando estructura para procedimiento fun4you.DarLike
 DROP PROCEDURE IF EXISTS `DarLike`;
 DELIMITER //
-CREATE PROCEDURE `DarLike`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DarLike`(
 	IN `codMeme` INT,
 	IN `idUsuario` INT
 )
@@ -98,10 +94,10 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for procedure fun4you.GetAllMemesUser
+-- Volcando estructura para procedimiento fun4you.GetAllMemesUser
 DROP PROCEDURE IF EXISTS `GetAllMemesUser`;
 DELIMITER //
-CREATE PROCEDURE `GetAllMemesUser`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAllMemesUser`(
 	IN `iduser` INT
 )
 BEGIN
@@ -120,7 +116,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for table fun4you.likes
+-- Volcando estructura para tabla fun4you.likes
 DROP TABLE IF EXISTS `likes`;
 CREATE TABLE IF NOT EXISTS `likes` (
   `id_meme` int(11) NOT NULL,
@@ -132,11 +128,10 @@ CREATE TABLE IF NOT EXISTS `likes` (
   KEY `Likes_Id_Usuario_Usuario_FK` (`id_usuario`),
   CONSTRAINT `likes_id_meme_fk` FOREIGN KEY (`id_meme`) REFERENCES `meme` (`id_meme`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `likes_id_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='En esta tabla se almacenan los likes de los usuarios.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='En esta tabla se almacenan los likes de los usuarios.';
 
--- Data exporting was unselected.
-
--- Dumping structure for table fun4you.meme
+-- La exportación de datos fue deseleccionada.
+-- Volcando estructura para tabla fun4you.meme
 DROP TABLE IF EXISTS `meme`;
 CREATE TABLE IF NOT EXISTS `meme` (
   `id_meme` int(11) NOT NULL AUTO_INCREMENT,
@@ -149,31 +144,29 @@ CREATE TABLE IF NOT EXISTS `meme` (
   PRIMARY KEY (`id_meme`),
   KEY `Meme_Id_Usuario_Usuario_FK` (`id_usuario`),
   CONSTRAINT `usuario_id_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COMMENT='Todos los usuarios pueden subir memes a fun4u, en esta tabla se almacenan estos memes.';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Todos los usuarios pueden subir memes a fun4u, en esta tabla se almacenan estos memes.';
 
--- Data exporting was unselected.
-
--- Dumping structure for procedure fun4you.MemeLiked
+-- La exportación de datos fue deseleccionada.
+-- Volcando estructura para procedimiento fun4you.MemeLiked
 DROP PROCEDURE IF EXISTS `MemeLiked`;
 DELIMITER //
-CREATE PROCEDURE `MemeLiked`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MemeLiked`(
 	IN `codMeme` INT,
 	IN `userID` INT
+
 )
     COMMENT 'Procedimiento para determinar si el usuario le dio like al meme'
 BEGIN
-	IF EXISTS (SELECT * FROM likes WHERE id_meme = codMeme AND id_usuario = userID) THEN 
-		SELECT 1 AS existe;
-	ELSE 
-		SELECT 0 AS existe;
-	END IF;
+	SELECT IFNULL (id_usuario,0)
+		FROM likes 
+			WHERE id_meme = codMeme AND id_usuario = userID; 
 END//
 DELIMITER ;
 
--- Dumping structure for procedure fun4you.MostrarMemes
+-- Volcando estructura para procedimiento fun4you.MostrarMemes
 DROP PROCEDURE IF EXISTS `MostrarMemes`;
 DELIMITER //
-CREATE PROCEDURE `MostrarMemes`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarMemes`(
 	IN `Permiso` CHAR(1),
 	IN `IdUsuario` INT
 )
@@ -206,10 +199,10 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for procedure fun4you.ObtenerUsuariosPorCoincidencia
+-- Volcando estructura para procedimiento fun4you.ObtenerUsuariosPorCoincidencia
 DROP PROCEDURE IF EXISTS `ObtenerUsuariosPorCoincidencia`;
 DELIMITER //
-CREATE PROCEDURE `ObtenerUsuariosPorCoincidencia`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ObtenerUsuariosPorCoincidencia`(
 	IN `ref` VARCHAR(50)
 
 
@@ -226,10 +219,10 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for procedure fun4you.QuitarLike
+-- Volcando estructura para procedimiento fun4you.QuitarLike
 DROP PROCEDURE IF EXISTS `QuitarLike`;
 DELIMITER //
-CREATE PROCEDURE `QuitarLike`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `QuitarLike`(
 	IN `memeSeleccionado` INT,
 	IN `usuarioSesion` INT
 )
@@ -242,10 +235,10 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for procedure fun4you.Registro
+-- Volcando estructura para procedimiento fun4you.Registro
 DROP PROCEDURE IF EXISTS `Registro`;
 DELIMITER //
-CREATE PROCEDURE `Registro`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Registro`(
 	IN `NombrePersona` VARCHAR(50),
 	IN `CorreoPersona` VARCHAR(50),
 	IN `NombreUsuario` VARCHAR(50),
@@ -258,7 +251,7 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for table fun4you.usuario
+-- Volcando estructura para tabla fun4you.usuario
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
@@ -274,14 +267,13 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `Usuario_Nombre_Usuario_Unique` (`nombre_usuario`),
   UNIQUE KEY `Usuario_Corre_Usuario_Unique` (`correo_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='En Fun4U las personas pueden tener varios usuarios pero un usuario puede pertenecer a una sola persona.';
 
--- Data exporting was unselected.
-
--- Dumping structure for procedure fun4you.ValidarUsuario
+-- La exportación de datos fue deseleccionada.
+-- Volcando estructura para procedimiento fun4you.ValidarUsuario
 DROP PROCEDURE IF EXISTS `ValidarUsuario`;
 DELIMITER //
-CREATE PROCEDURE `ValidarUsuario`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ValidarUsuario`(
 	IN `nom_u` VARCHAR(50),
 	IN `pass` VARCHAR(50)
 )
@@ -299,6 +291,5 @@ END//
 DELIMITER ;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

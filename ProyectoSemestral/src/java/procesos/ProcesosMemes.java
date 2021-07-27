@@ -45,8 +45,12 @@ public class ProcesosMemes {
     }
    
     public List<Memes> GetAllMemes(char permiso,int id_usuario){
+        int resultado=0;
         try{
-
+            
+            
+            
+            
             Statement stmt = _cn.createStatement();
             String query = "Call MostrarMemes('"+permiso+"','"+id_usuario+"')";
 
@@ -63,14 +67,24 @@ public class ProcesosMemes {
                 meme.setFecha(result.getString("fecha")); 
                 meme.setLikes(result.getInt("likes"));
                 meme.setId_meme(result.getInt("id_meme"));
-                meme.setLiked(MemeLiked(result.getInt("id_meme"),id_usuario));
+                Statement stmt2 = _cn.createStatement();
+                String query2 = "Call MemeLiked('"+result.getInt("id_meme")+"','"+id_usuario+"')";
+                ResultSet result2 = stmt2.executeQuery(query2);
+                
+                meme.setLiked(result2.getInt("id_usuario"));
+                
+                
                 memes.add(meme);
+                result2.close();
+                stmt2.close();
             }
             
             result.close();
             stmt.close();
             
             return memes;
+            
+         
         }
         catch(SQLException e){
             int x = 5;

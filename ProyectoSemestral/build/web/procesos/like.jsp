@@ -6,7 +6,7 @@
 
 <%@page import="procesos.ProcesosMemes"%>
 <%
-    int id_meme = request.getParameter("id_meme");
+    int id_meme = Integer.parseInt(request.getParameter("id_meme"));
     int id_usuario = (int)session.getAttribute("id_usuario");
     
     ProcesosMemes meme = new ProcesosMemes();
