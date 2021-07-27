@@ -4,6 +4,7 @@
     Author     : raulr
 --%>
 
+<%@page import="entidades.Personas"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="entidades.Memes"%>
@@ -16,7 +17,8 @@
     
     ProcesosMemes memesDb = new ProcesosMemes();    
     List<Memes> memes = memesDb.GetAllMemesUser(iduser);  
-
+    
+    Personas persona = new Personas();
 %>
 
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
@@ -33,7 +35,7 @@
                     <div class="mb-3">
                         <h3><%=(String)session.getAttribute("nombre_usuario")%> <a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></h3>
                         <br>
-                        <button type="button" class="btn btn-warning btn-cons">Ver amigos</button> 
+                        <a class="btn btn-warning btn-cons" href="verAmigos.jsp">Ver amigos</a> 
                     </div>
                   </div>
                 </div>

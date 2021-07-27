@@ -23,10 +23,10 @@ public class ProcesosAmigos {
         _cn = new conexion().OpenDb();
     }
     
-    public int GuardarAmigo(Personas persona){
+    public int GuardarAmigo(int idusuario, int idamigo){
          try{
             Statement stmt = _cn.createStatement();
-            String query = "Call InsertarAmigo('"+persona.getId_persona()+"')";
+            String query = "Call InsertarAmigo('"+idusuario+"', '"+idamigo+"')";
             
             int res = 0;
             stmt.executeUpdate(query);
@@ -49,7 +49,7 @@ public class ProcesosAmigos {
             ResultSet result = stmt.executeQuery(query);
             while(result.next()){
                 Personas persona = new Personas();
-                persona.setId_persona(result.getInt("id_usuario"));
+                persona.setId_persona(result.getInt("id_amigo"));
                 persona.setNombre_usuario(result.getString("nombre_usuario"));
                 persona.setFoto_usuario(result.getString("foto"));
                 

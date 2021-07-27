@@ -4,6 +4,7 @@
     Author     : Angela
 --%>
 
+<%@page import="procesos.ProcesosAmigos"%>
 <%@page import="entidades.Personas"%>
 <%@page import="procesos.ProcesosPersonas"%>
 <%@page import="java.util.List"%>
@@ -17,7 +18,8 @@
     int iduser = (int)session.getAttribute("iduserbuscar");
     String foto = request.getParameter("foto");
    
-    
+   ProcesosAmigos amigos = new ProcesosAmigos();
+   
     ProcesosMemes memesDb = new ProcesosMemes();    
     List<Memes> memes = memesDb.GetAllMemesUser(iduser);  
 
@@ -40,7 +42,7 @@
                     <div class="mb-3">
                         <h3><%=(String)session.getAttribute("nombreub")%></h3>
                         <br>
-                        <button type="button" class="btn btn-success btn-cons" >Seguir</button>
+                        <a class="btn btn-success btn-cons" href="procesos/amigos.jsp?idu=<%=(int)session.getAttribute("id_usuario")%>&ida=<%=(int)session.getAttribute("iduserbuscar")%>">Seguir</a>
                     </div>
                   </div>
                 </div>
