@@ -3,7 +3,7 @@
     Created on : 07/26/2021, 9:49:21 p. m.
     Author     : Angela
 --%>
-
+<!-- Este proceso se utiliza para guardar amigos  -->
 <%@page import="entidades.Personas"%>
 <%@page import="procesos.ProcesosAmigos"%>
 

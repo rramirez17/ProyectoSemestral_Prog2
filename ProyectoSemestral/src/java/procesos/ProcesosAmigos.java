@@ -16,6 +16,9 @@ import java.util.List;
  *
  * @author Angela
  */
+/*En este proceso se guardan los amigos en la DB y se obtienen los amigos guardados 
+de la base de datos*/
+
 public class ProcesosAmigos {
     Connection _cn;
     

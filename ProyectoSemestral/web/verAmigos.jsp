@@ -4,6 +4,8 @@
     Author     : Angela
 --%>
 
+<!-- Esta es la página para ver los amigos agregados -->
+
 <%@page import="entidades.Personas"%>
 <%@page import="java.util.List"%>
 <%@page import="procesos.ProcesosAmigos"%>

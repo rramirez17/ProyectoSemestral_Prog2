@@ -16,6 +16,10 @@ import java.util.List;
  *
  * @author raulr
  */
+/*En este proceso se tienen todos los procesos referentes a los memes: 
+    dar like, obtener todos los memes, obtener los memes por usuario, 
+    quitar los likes y borrar meems.*/
+
 public class ProcesosMemes {
     Connection _cn;
     
@@ -171,6 +175,58 @@ public class ProcesosMemes {
         }
 
     }
-      
+    
+     public int ActualizarTituloMeme (String titulo_nuevo, int ID){
+        int resultado = 0;
+        try{
+            Statement stmt = _cn.createStatement();
+            String query = "Call CambiarTituloMeme('"+titulo_nuevo+"','"+ID+"')";
+            
+            resultado = stmt.executeUpdate(query);
+            stmt.close();
+            
+            return resultado;
+        }
+        catch(Exception e){
+            int x = 1;
+        }
+        
+        return resultado;
+    }
+    
+     
+    public List<Memes> MostrarMemeSeleccionado(int idmeme){
+        try{
+
+            Statement stmt = _cn.createStatement();
+            String query = "Call MostrarMemeSeleccionado('"+idmeme+"')";
+
+            
+            List<Memes> memes = new ArrayList<>();
+            
+            ResultSet result = stmt.executeQuery(query);
+            while(result.next()){
+                Memes meme = new Memes();
+                meme.setNombre_usuario(result.getString("nombre_usuario"));
+                meme.setTitulo_meme(result.getString("titulo_meme"));
+                meme.setImagen_meme(result.getString("imagen_meme"));
+                meme.setFoto_usuario(result.getString("foto_usuario"));
+                meme.setFecha(result.getString("fecha")); 
+                meme.setLikes(result.getInt("likes"));
+                meme.setId_meme(result.getInt("id_meme"));
+
+                memes.add(meme);
+            }
+            
+            result.close();
+            stmt.close();
+            
+            return memes;
+        }
+        catch(SQLException e){
+            int x = 5;
+        }
+        return null;
+    }
 
 }

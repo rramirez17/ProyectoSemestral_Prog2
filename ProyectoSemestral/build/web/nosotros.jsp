@@ -3,6 +3,7 @@
     Created on : Jul 6, 2021, 4:37:23 PM
     Author     : raulr
 --%>
+<!-- Este es la página de nosotros -->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

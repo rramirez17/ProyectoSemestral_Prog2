@@ -17,6 +17,10 @@ import java.util.List;
  *
  * @author raulr
  */
+
+/*En este proceso se tienen todos los procesos referentes a las personas: 
+    registar persona, validar login de usuario y obtener a todas las personas por coincidencia.*/
+
 public class ProcesosPersonas {
     Connection _cn; /*Se le coloca el gion bajo para saber que es una variable global*/
     

@@ -3,6 +3,7 @@
     Created on : Jul 22, 2021, 1:35:33 PM
     Author     : raulr
 --%>
+<!-- Este es página de inicio -->
 
         <%@ include file="header.jsp"%>
         <%@page import="entidades.Memes"%>

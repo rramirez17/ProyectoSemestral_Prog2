@@ -3,7 +3,7 @@
     Created on : Jul 24, 2021, 10:01:19 AM
     Author     : raulr
 --%>
-
+<!-- Este proceso se utiliza para dar like a los memes -->
 <%@page import="procesos.ProcesosMemes"%>
 <%
     int id_meme = Integer.parseInt(request.getParameter("id_meme"));
