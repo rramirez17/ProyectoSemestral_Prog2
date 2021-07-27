@@ -10,9 +10,10 @@
 <!DOCTYPE html>
 <%@ include file="header.jsp"%>
 
-<div class="container">
+<div class="container" style="margin-top: 80px">
+    
     <div class="contact__wrapper shadow-lg mt-n9">
-        <br><br><br>
+        
         <div class="row no-gutters">
             <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2">
                 <h3 class="color--white mb-5">Contáctanos</h3>
@@ -63,7 +64,7 @@
                         <div class="col-sm-6 mb-3">
                             <div class="form-group">
                                 <label class="required-field" for="email">Correo electrónico</label>
-                                <input type="text" class="form-control" id="email" name="userEmail" placeholder="Ingresa tu correo.">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Ingresa tu correo.">
                             </div>
                         </div>
     
@@ -72,7 +73,7 @@
                         <div class="col-sm-12 mb-3">
                             <div class="form-group">
                                 <label class="required-field" for="message">¿Cómo te podemos ayudar?</label>
-                                <textarea class="form-control" id="message" name="content" rows="4" placeholder="Cuentanos como podemos hacer que fun4you sea tu red social de memes #1."></textarea>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Cuentanos como podemos hacer que fun4you sea tu red social de memes #1."></textarea>
                             </div>
                         </div>
     
@@ -88,6 +89,5 @@
         </div>
     </div>
 </div>
- <script type="text/javascript" src="javascript/validarFormularioContacto.js"></script>
 </body>
 </html>
