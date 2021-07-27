@@ -70,34 +70,6 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for procedure fun4you.CambiarFotoPerfil
-DROP PROCEDURE IF EXISTS `CambiarFotoPerfil`;
-DELIMITER //
-CREATE PROCEDURE `CambiarFotoPerfil`(
-	IN `nombreNuevo` VARCHAR(50),
-	IN `usuarioSesion` INT
-)
-BEGIN
-	UPDATE usuario
-		SET nombre_usuario = nombreNuevo
-			WHERE id_usuario = usuarioSesion;
-END//
-DELIMITER ;
-
--- Dumping structure for procedure fun4you.CambiarImagenMeme
-DROP PROCEDURE IF EXISTS `CambiarImagenMeme`;
-DELIMITER //
-CREATE PROCEDURE `CambiarImagenMeme`(
-	IN `imagenNueva` VARCHAR(500),
-	IN `ID` INT
-)
-BEGIN
-	UPDATE meme 
-		SET imagen_meme = imagenNueva
-			WHERE id_meme = ID;
-END//
-DELIMITER ;
-
 -- Dumping structure for procedure fun4you.CambiarTituloMeme
 DROP PROCEDURE IF EXISTS `CambiarTituloMeme`;
 DELIMITER //
@@ -112,35 +84,16 @@ BEGIN
 END//
 DELIMITER ;
 
--- Dumping structure for table fun4you.comentarios
-DROP TABLE IF EXISTS `comentarios`;
-CREATE TABLE IF NOT EXISTS `comentarios` (
-  `id_comentario` int(11) NOT NULL AUTO_INCREMENT,
-  `id_meme` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `comentario` varchar(500) NOT NULL DEFAULT '',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id_comentario`,`id_meme`,`id_usuario`),
-  KEY `Comentarios_Id_Meme_Meme_FK` (`id_meme`),
-  KEY `Comentarios_Id_Usuario_Usuario_FK` (`id_usuario`),
-  CONSTRAINT `comentarios_id_meme_fk` FOREIGN KEY (`id_meme`) REFERENCES `meme` (`id_meme`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `comentarios_id_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='En esta tabla se guardan los comentarios de cada meme. El id del comentario permite que un usuario comente varias veces en un meme.';
-
--- Data exporting was unselected.
-
 -- Dumping structure for table fun4you.contacto
 DROP TABLE IF EXISTS `contacto`;
 CREATE TABLE IF NOT EXISTS `contacto` (
   `id_contacto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_usuario` varchar(50) DEFAULT NULL,
   `correo_persona` varchar(50) DEFAULT NULL,
-  `asunto` varchar(200) DEFAULT NULL,
   `contenido` text DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_contacto`),
   KEY `Contacto_id_usuario_fk` (`id_usuario`),
   CONSTRAINT `contacto_id_usuario_fk` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -161,6 +114,22 @@ BEGIN
 	UPDATE meme 
 		SET likes = likes + 1
 		WHERE id_meme = codMeme;
+END//
+DELIMITER ;
+
+-- Dumping structure for procedure fun4you.EnviarContacto
+DROP PROCEDURE IF EXISTS `EnviarContacto`;
+DELIMITER //
+CREATE PROCEDURE `EnviarContacto`(
+	IN `Nombre` VARCHAR(50),
+	IN `Correo` VARCHAR(50),
+	IN `Contenido` TEXT,
+	IN `ID` INT
+)
+    COMMENT 'Procedimiento para agregar el formulario de contacto'
+BEGIN
+	INSERT INTO contacto (nombre_usuario,correo_persona,contenido,id_usuario)
+		VALUES (Nombre,Correo,Contenido,ID);	
 END//
 DELIMITER ;
 
@@ -223,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `likesdados` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 
