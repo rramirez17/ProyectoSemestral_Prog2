@@ -4,14 +4,19 @@
     Author     : raulr
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+
+<%@page import="entidades.Contacto"%>
+
+<%@page import="procesos.ProcesosContacto"%>
+<%
+    try{
+        ProcesosContacto contacto = new ProcesosContacto();
+        
+        contacto.RegistrarContacto(request.getParameter("userName"),request.getParameter("email"),request.getParameter("message"),(int)session.getAttribute("id_usuario"));
+        
+    }
+    catch(Exception e){
+        response.sendRedirect("../contacto.jsp");
+    }
+        response.sendRedirect("../contacto.jsp");
+%>
