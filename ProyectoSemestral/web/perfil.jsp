@@ -36,7 +36,7 @@
                             <div class="border-bottom text-center pb-4" >
                                 <img src="<%=(String)session.getAttribute("foto_usuario")%>" alt="<%=(String)session.getAttribute("nombre_usuario")%>"  class="img-lg rounded-circle mb-3" style="width:300px;height:300px">
                                 <div class="mb-3">
-                                    <h3><%=(String)session.getAttribute("nombre_usuario")%> <a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></h3>
+                                    <h3><%=(String)session.getAttribute("nombre_usuario")%></h3>
                                     <br>
                                     <a class="btn btn-warning btn-cons" href="verAmigos.jsp">Ver amigos</a> 
                                 </div>
