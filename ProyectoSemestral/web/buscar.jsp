@@ -29,8 +29,8 @@
                 <%}%>
             </ul>
     </div>
-            <%}else{%>
-                <h2 style="margin-top: 100px; margin-left: 25%">No hemos encontrados coincidencia con su busqueda de "<%= ref %>"</h2>
-            <%}%>
+        <%}else{%>
+            <h2 style="margin-top: 100px; margin-left: 25%">No hemos encontrados coincidencia con su busqueda de "<%= ref %>"</h2>
+        <%}%>
 
         
