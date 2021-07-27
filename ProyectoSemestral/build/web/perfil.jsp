@@ -17,7 +17,8 @@
     int iduser = (int)session.getAttribute("id_usuario");
     
     ProcesosMemes memesDb = new ProcesosMemes();    
-    List<Memes> memes = memesDb.GetAllMemesUser(iduser);  
+    List<Memes> memes = memesDb.GetAllMemesUser(iduser);
+    
     
     Personas persona = new Personas();
 %>
@@ -71,9 +72,10 @@
                           <p class="small text-muted mb-0"><%= meme.getFecha() %></p>
                         </div>
                       </div>
-                    </div><img  class="rounded w-100 mt-3" src="<%= meme.getImagen_meme() %>" alt="<%= meme.getTitulo_meme() %>">
+                    </div>
+                    <img  class="rounded w-100 mt-3" src="<%= meme.getImagen_meme() %>" alt="<%= meme.getTitulo_meme() %>">
                     <div class="mt-3">
-                      <h4 class="h5"><%= meme.getTitulo_meme() %> <a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></h4>
+                      <h4 class="h5"><%= meme.getTitulo_meme() %> <a href="editarTitulo.jsp?id_meme=<%= meme.getId_meme()%>" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></h4>
                     </div>
                     <%int existe = memesDb.MemeLiked(meme.getId_meme(),(int)session.getAttribute("id_usuario"));%>
                     </div>
