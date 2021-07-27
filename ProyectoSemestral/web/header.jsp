@@ -3,7 +3,7 @@
     Created on : Jul 22, 2021, 1:36:54 PM
     Author     : raulr
 --%>
-
+<!-- Aquí se encuentra el header el cual tiene el navbar -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : admin
-    Created on : Jul 6, 2021, 4:38:22 PM
-    Author     : raulr
+    Document   : editarTitulo
+    Created on : 07/27/2021, 9:46:23 a. m.
+    Author     : Angela
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

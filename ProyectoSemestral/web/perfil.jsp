@@ -3,6 +3,7 @@
     Created on : Jul 6, 2021, 4:37:09 PM
     Author     : raulr
 --%>
+<!-- Este es la página de perfil de uduario -->
 
 <%@page import="entidades.Personas"%>
 <%@page import="java.util.List"%>
@@ -55,7 +56,7 @@
                       </div>
                     </div><img  class="rounded w-100 mt-3" src="<%= meme.getImagen_meme() %>" alt="<%= meme.getTitulo_meme() %>">
                     <div class="mt-3">
-                      <h4 class="h5"><%= meme.getTitulo_meme() %></h4>
+                      <h4 class="h5"><%= meme.getTitulo_meme() %> <a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></h4>
                     </div>
                     <div class="d-flex justify-content-between">
                         <%if(meme.getLiked() == 0){%>

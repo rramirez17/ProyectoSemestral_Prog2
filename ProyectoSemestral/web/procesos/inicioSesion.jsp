@@ -3,7 +3,7 @@
     Created on : 07/22/2021, 8:24:36 p. m.
     Author     : Angela
 --%>
-
+<!-- Este proceso se utiliza para iniciar sesión -->
 <%@page import="entidades.Personas"%>
 <%@page import="procesos.ProcesosPersonas"%>
 

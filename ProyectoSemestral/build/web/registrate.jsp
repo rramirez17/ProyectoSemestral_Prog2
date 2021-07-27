@@ -3,6 +3,7 @@
     Created on : Jul 6, 2021, 4:36:56 PM
     Author     : raulr
 --%>
+<!-- Esta es la página de registro de usuarios -->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

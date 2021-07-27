@@ -3,6 +3,7 @@
     Created on : 07/26/2021, 8:20:46 p. m.
     Author     : Angela
 --%>
+<!-- Esta es la página que muestra el perfil del usuario buscado -->
 
 <%@page import="procesos.ProcesosAmigos"%>
 <%@page import="entidades.Personas"%>
@@ -70,7 +71,6 @@
                             <%}if(meme.getLiked() == 1){%>
                                 <a class="btn btn-default bg-transparent" onclick="<%memesDb.QuitarLike(meme.getId_meme(),(int)session.getAttribute("id_usuario"));%>window.location.reload();"><i class="bi bi-heart-fill text-danger"></i></a><p><%= meme.getLikes()%><p>
                             <%}%>
-                                <button onclick=""><i class="fas fa-trash">Borrar meme</i>  </button>
                     </div>
                   </div>
                      <%}%>

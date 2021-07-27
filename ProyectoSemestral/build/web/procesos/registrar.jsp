@@ -3,7 +3,7 @@
     Created on : 07/22/2021, 8:31:01 p. m.
     Author     : Angela
 --%>
-
+<!-- Este proceso se utiliza para poder registrar usuarios-->
 
 <%@page import="entidades.Personas"%>
 

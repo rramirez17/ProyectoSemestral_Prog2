@@ -16,6 +16,10 @@ import java.util.List;
  *
  * @author raulr
  */
+/*En este proceso se tienen todos los procesos referentes a los memes: 
+    dar like, obtener todos los memes, obtener los memes por usuario, 
+    quitar los likes y borrar meems.*/
+
 public class ProcesosMemes {
     Connection _cn;
     

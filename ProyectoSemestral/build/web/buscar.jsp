@@ -1,4 +1,6 @@
 
+<!-- Este es la parte de la búsqueda por usuario -->
+
 <%@page import="entidades.Personas"%>
 <%@page import="java.util.List"%>
 <%@page import="procesos.ProcesosPersonas"%>
