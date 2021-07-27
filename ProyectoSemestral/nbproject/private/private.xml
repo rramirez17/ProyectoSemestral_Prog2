@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/procesos/enviarContacto.jsp</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/src/java/procesos/ProcesosContacto.java</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/src/java/entidades/Personas.java</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/header.jsp</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/procesos/borrar.jsp</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/src/java/entidades/Contacto.java</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/login.jsp</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/contacto.jsp</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/src/java/procesos/ProcesosPersonas.java</file>
+            <file>file:/C:/Users/raulr/Documents/NetBeansProjects/Fun4U/ProyectoSemestral/web/perfil.jsp</file>
+        </group>
     </open-files>
 </project-private>
