@@ -42,7 +42,7 @@
             <a href="nosotros.jsp"> Nosotros</a>
         </li>
         <li class="navli">
-            <a href="Perfil.jsp"> Perfil</a>
+            <a href="perfil.jsp"> Perfil</a>
         </li>
         <li class="navli">
             <a href="home.jsp">Inicio</a>

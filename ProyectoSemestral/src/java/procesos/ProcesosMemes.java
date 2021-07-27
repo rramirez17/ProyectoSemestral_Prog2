@@ -67,16 +67,9 @@ public class ProcesosMemes {
                 meme.setFecha(result.getString("fecha")); 
                 meme.setLikes(result.getInt("likes"));
                 meme.setId_meme(result.getInt("id_meme"));
-                Statement stmt2 = _cn.createStatement();
-                String query2 = "Call MemeLiked('"+result.getInt("id_meme")+"','"+id_usuario+"')";
-                ResultSet result2 = stmt2.executeQuery(query2);
-                
-                meme.setLiked(result2.getInt("id_usuario"));
-                
                 
                 memes.add(meme);
-                result2.close();
-                stmt2.close();
+                
             }
             
             result.close();
