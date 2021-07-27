@@ -89,27 +89,7 @@
                                     <h2>Anímate a compartir un meme!</h2>
                                 <%}%>
                         </div>
-<<<<<<< HEAD
-=======
                       </div>
-                    </div>
-                    <img  class="rounded w-100 mt-3" src="<%= meme.getImagen_meme() %>" alt="<%= meme.getTitulo_meme() %>">
-                    <div class="mt-3">
-                      <h4 class="h5"><%= meme.getTitulo_meme() %> <a href="editarTitulo.jsp?id_meme=<%= meme.getId_meme()%>" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></h4>
-                    </div>
-                    <%int existe = memesDb.MemeLiked(meme.getId_meme(),(int)session.getAttribute("id_usuario"));%>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <%if (existe == 1){%>
-                                <a class="btn btn-default bg-transparent" href="procesos/dislike.jsp?id_meme=<%= meme.getId_meme()%>" ><i class="bi bi-heart-fill text-danger"></i></a><p><%= meme.getLikes()%> likes<p>
-                            <%} else {%>
-                                <a class="btn btn-default bg-transparent" href="procesos/like.jsp?id_meme=<%= meme.getId_meme()%>"><i class="bi bi-heart text-danger"></i></a><p><%= meme.getLikes() %> likes</p>
-                                
-                            <%}%>
-
-                              <a  href="procesos/borrar.jsp?Mid=<%= meme.getId_meme() %>"><i class="bi bi-trash"></i>Borrar meme</a>
-                           
->>>>>>> a61a640c67c10b7877c5169f29712135761607ae
                     </div>
                 </div>
             </div>
