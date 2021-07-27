@@ -31,7 +31,6 @@ public class ProcesosContacto {
        
         }
         catch(SQLException e){
-            int x=2;
         }  
     }
 }

@@ -37,7 +37,6 @@ public class ProcesosAmigos {
             stmt.close();
         }
         catch(Exception e){
-            int cx = 3;
         }
         return 0;
     }

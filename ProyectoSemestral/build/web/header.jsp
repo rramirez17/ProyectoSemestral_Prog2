@@ -51,7 +51,6 @@
             <form action="buscar.jsp"> 
                 <div class="input-group">
                     <input type="text" name="ref" class="form-control" placeholder="Buscar" style="width: 350px"/> 
-                    
                 </div>
             </form> 
         </li>

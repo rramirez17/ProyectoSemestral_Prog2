@@ -39,7 +39,6 @@ public class ProcesosMemes {
             return resultado;
         }
         catch(SQLException e){
-            int x = 5;
         }
         return resultado;
     }
@@ -77,7 +76,6 @@ public class ProcesosMemes {
          
         }
         catch(SQLException e){
-            int x = 5;
         }
         return null;
     }
@@ -111,7 +109,6 @@ public class ProcesosMemes {
             return memes;
         }
         catch(SQLException e){
-            int x = 5;
         }
         return null;
     }
@@ -171,7 +168,6 @@ public class ProcesosMemes {
             stmt.close();
         }
         catch(Exception e){
-            int x=2;
         }
 
     }
@@ -188,7 +184,6 @@ public class ProcesosMemes {
             return resultado;
         }
         catch(Exception e){
-            int x = 1;
         }
         
         return resultado;
@@ -224,7 +219,6 @@ public class ProcesosMemes {
             return memes;
         }
         catch(SQLException e){
-            int x = 5;
         }
         return null;
     }

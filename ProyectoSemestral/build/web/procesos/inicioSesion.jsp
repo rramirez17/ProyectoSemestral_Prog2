@@ -9,8 +9,7 @@
 
 <%
     try{
-        
-        
+       
         ProcesosPersonas personas = new ProcesosPersonas();
         
         Personas persona = new Personas();

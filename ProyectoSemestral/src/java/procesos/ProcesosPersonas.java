@@ -45,7 +45,6 @@ public class ProcesosPersonas {
        
         }
         catch(SQLException e){
-            int x=2;
         }  
     }
     
@@ -94,7 +93,6 @@ public class ProcesosPersonas {
             return personas;
         }
         catch(Exception e){
-            int x = 5;
         }
         return null;
     }
