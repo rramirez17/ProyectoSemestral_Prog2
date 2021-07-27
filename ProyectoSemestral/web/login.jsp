@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun4You-Iniciar sesión</title>
     <link href="css/login.css" rel="stylesheet" />
-    
+    <link rel="icon" type="image/x-icon" href="imagenes/logo/favicon.ico" />
     
 </head>
     <article class="S2">
