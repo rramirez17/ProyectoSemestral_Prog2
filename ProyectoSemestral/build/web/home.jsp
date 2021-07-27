@@ -23,6 +23,7 @@
             List<Memes> memes = procesos.GetAllMemes(permisoUsuario,idUsuario);
             
             
+            
         %>
         
         <div class="container">
@@ -44,27 +45,28 @@
                       
                     </div><img  class="rounded w-100 mt-3" src="<%= meme.getImagen_meme() %>" alt="<%= meme.getTitulo_meme() %>">
                     <div class="mt-3">
-                      <h4 class="h5"><%= meme.getTitulo_meme() %><%= meme.getLiked() %></h4>
-                      
+                      <h4 class="h5"><%= meme.getTitulo_meme() %></h4>
+                      <%int existe = procesos.MemeLiked(meme.getId_meme(),(int)session.getAttribute("id_usuario"));%>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <%if(meme.getLiked() == meme.getId_meme()){%>
-                            <a class="btn btn-default bg-transparent" href="procesos/like.jsp?id_meme=<%= meme.getId_meme()%>"><i class="bi bi-heart-fill text-danger"></i></a><p><%= meme.getLikes() %> likes</p>
+                        <%if (existe == 1){%>
+                                <a class="btn btn-default bg-transparent" href="procesos/dislike.jsp?id_meme=<%= meme.getId_meme()%>" ><i class="bi bi-heart-fill text-danger"></i></a><p><%= meme.getLikes()%> likes<p>
                             <%} else {%>
-                                <a class="btn btn-default bg-transparent" href="procesos/dislike.jsp?id_meme=<%= meme.getId_meme()%>" ><i class="bi bi-heart text-danger"></i></a><p><%= meme.getLikes()%><p>
+                                <a class="btn btn-default bg-transparent" href="procesos/like.jsp?id_meme=<%= meme.getId_meme()%>"><i class="bi bi-heart text-danger"></i></a><p><%= meme.getLikes() %> likes</p>
+                                
                             <%}%>
                          <% 
                              char permit =(char)session.getAttribute("permiso_usuario");
                             if( permit == 'A'){
                         %>
-                                <button onclick=""><i class="fas fa-trash">Borrar meme</i>  </button>
+                              <a class="btn btn-danger" href="procesos/borrar.jsp?Mid=<%= meme.getId_meme() %>"><i class="bi bi-trash"></i>Borrar meme</a>
                            
                          <%}%>
                       
                     </div>
                   </div>
                      <%}%>
-                   <%}else{%>
+                   <%}else {%>
                          <h2 style="margin-top: 100px; margin-left: 25%">No tienes amigos, prueba fun4you con amigos!</h2>
                      <%}%>
                

@@ -26,16 +26,12 @@ public class ProcesosMemes {
     public int MemeLiked(int id_meme, int id_usuario){
         int resultado = 0;
         try{
+            Statement stmt2 = _cn.createStatement();
+            String query2 = "Call MemeLikedDB('"+id_meme+"','"+id_usuario+"')";
+            
+           resultado = stmt2.executeUpdate(query2);
 
-            Statement stmt = _cn.createStatement();
-            String query = "Call MemeLiked('"+id_meme+"','"+id_usuario+"')";
-            
-            ResultSet result = stmt.executeQuery(query);
-            resultado = result.getInt("existe");
-            
-            
-            result.close();
-            stmt.close();
+            stmt2.close();
             return resultado;
         }
         catch(SQLException e){
@@ -44,13 +40,10 @@ public class ProcesosMemes {
         return resultado;
     }
    
+    
     public List<Memes> GetAllMemes(char permiso,int id_usuario){
-        int resultado=0;
         try{
-            
-            
-            
-            
+          
             Statement stmt = _cn.createStatement();
             String query = "Call MostrarMemes('"+permiso+"','"+id_usuario+"')";
 
@@ -67,9 +60,16 @@ public class ProcesosMemes {
                 meme.setFecha(result.getString("fecha")); 
                 meme.setLikes(result.getInt("likes"));
                 meme.setId_meme(result.getInt("id_meme"));
+<<<<<<< HEAD
+                
+                
+                memes.add(meme);
+              
+=======
                 
                 memes.add(meme);
                 
+>>>>>>> 4e453ecd62421cac30aed9b09e13a05e159b2a06
             }
             
             result.close();
@@ -104,7 +104,7 @@ public class ProcesosMemes {
                 meme.setFecha(result.getString("fecha")); 
                 meme.setLikes(result.getInt("likes"));
                 meme.setId_meme(result.getInt("id_meme"));
-                meme.setLiked(MemeLiked(result.getInt("id_meme"),iduser));
+
                 memes.add(meme);
             }
             
